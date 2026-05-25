@@ -1,0 +1,226 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getEntry } from 'astro:content';
+
+const menuPageEntry = await getEntry('pages', 'menu');
+const menuPage = menuPageEntry?.data;
+const heroSection = menuPage?.sections?.find(s => s.type === 'hero')?.content || {
+  label: 'Nuestro Menú',
+  heading: 'Encuentra tu favorito',
+  subheading: 'Cada bebida es preparada al momento con granos seleccionados a mano.'
+};
+
+const allProducts = await getCollection('products');
+const allCategories = await getCollection('categories');
+const sortedCategories = allCategories.sort((a, b) => (a.data.order ?? 0) - (b.data.order ?? 0));
+
+// Group products by category
+const productsByCategory = new Map<string, typeof allProducts>();
+for (const product of allProducts) {
+  const cat = product.data.category;
+  if (!productsByCategory.has(cat)) {
+    productsByCategory.set(cat, []);
+  }
+  productsByCategory.get(cat)!.push(product);
+}
+---
+
+<BaseLayout title={menuPage?.title || "Menú"} description={menuPage?.description || "Explora nuestro menú completo de cafés artesanales, lattes, bebidas frías y más."}>
+  <Header slot="header" />
+
+  <section class="menu-hero" id="menu-hero">
+    <div class="container">
+      <span class="section-label star-deco">{heroSection.label}</span>
+      <h1>{heroSection.heading}</h1>
+      <p class="menu-subtitle">{heroSection.subheading}</p>
+    </div>
+  </section>
+
+  <!-- Category filter tabs -->
+  <section class="menu-filters" id="menu-filters">
+    <div class="container">
+      <div class="filter-tabs">
+        <button class="filter-tab active" data-category="all" id="filter-all">
+          <span class="filter-icon">🍽</span>
+          Todos
+        </button>
+        {sortedCategories.map(cat => (
+          <button
+            class="filter-tab"
+            data-category={cat.data.slug}
+            id={`filter-${cat.data.slug}`}
+          >
+            <span class="filter-icon">{cat.data.icon}</span>
+            {cat.data.name}
+          </button>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Products by category -->
+  <section class="menu-products section" id="menu-products">
+    <div class="container">
+      {sortedCategories.map(category => {
+        const products = productsByCategory.get(category.data.slug) || [];
+        return (
+          <div class="category-group" data-category-group={category.data.slug} id={category.data.slug}>
+            <div class="category-header">
+              <span class="category-icon">{category.data.icon}</span>
+              <h2>{category.data.name}</h2>
+              <span class="category-count">{products.length} bebidas</span>
+            </div>
+            <div class="grid grid-3 stagger">
+              {products.map(product => (
+                <ProductCard {...product.data} />
+              ))}
+            </div>
+            <hr class="divider-dots" />
+          </div>
+        );
+      })}
+    </div>
+  </section>
+
+  <Footer slot="footer" />
+</BaseLayout>
+
+<style>
+  .menu-hero {
+    padding-top: calc(var(--header-height) + var(--space-4xl));
+    padding-bottom: var(--space-3xl);
+    text-align: center;
+    background: linear-gradient(180deg, var(--color-parchment) 0%, var(--bg-primary) 100%);
+  }
+
+  .menu-subtitle {
+    margin: var(--space-md) auto 0;
+    font-size: 1.1rem;
+    max-width: 50ch;
+  }
+
+  /* Filter tabs */
+  .menu-filters {
+    position: sticky;
+    top: var(--header-height);
+    z-index: 100;
+    background: rgba(253, 246, 236, 0.95);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--border-color);
+    padding: var(--space-md) 0;
+  }
+
+  .filter-tabs {
+    display: flex;
+    gap: var(--space-sm);
+    overflow-x: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    padding: var(--space-xs) 0;
+  }
+
+  .filter-tabs::-webkit-scrollbar {
+    display: none;
+  }
+
+  .filter-tab {
+    display: flex;
+    align-items: center;
+    gap: var(--space-xs);
+    padding: var(--space-sm) var(--space-lg);
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: var(--radius-full);
+    white-space: nowrap;
+    transition: all var(--duration-fast);
+    cursor: pointer;
+  }
+
+  .filter-tab:hover {
+    color: var(--text-primary);
+    background: var(--color-cream-dark);
+  }
+
+  .filter-tab.active {
+    color: var(--text-primary);
+    background: white;
+    border-color: var(--color-ink);
+    font-weight: 600;
+  }
+
+  .filter-icon {
+    font-size: 1.1rem;
+  }
+
+  /* Category groups */
+  .category-group {
+    scroll-margin-top: calc(var(--header-height) + 80px);
+  }
+
+  .category-header {
+    display: flex;
+    align-items: center;
+    gap: var(--space-md);
+    margin-bottom: var(--space-2xl);
+  }
+
+  .category-icon {
+    font-size: 1.8rem;
+  }
+
+  .category-header h2 {
+    font-size: 1.8rem;
+  }
+
+  .category-count {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    background: var(--color-cream-dark);
+    padding: 2px 10px;
+    border-radius: var(--radius-full);
+  }
+
+  .category-group:last-child .divider-dots {
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .filter-tabs {
+      padding: 0 var(--space-sm);
+    }
+  }
+</style>
+
+<script>
+  // Category filter functionality
+  const filterTabs = document.querySelectorAll('.filter-tab');
+  const categoryGroups = document.querySelectorAll('.category-group');
+
+  filterTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      const category = tab.getAttribute('data-category');
+
+      // Update active tab
+      filterTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      // Filter groups
+      categoryGroups.forEach(group => {
+        const groupCat = group.getAttribute('data-category-group');
+        if (category === 'all' || groupCat === category) {
+          (group as HTMLElement).style.display = '';
+        } else {
+          (group as HTMLElement).style.display = 'none';
+        }
+      });
+    });
+  });
+</script>

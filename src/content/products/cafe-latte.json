@@ -1,0 +1,16 @@
+{
+  "id": "cafe-latte",
+  "name": "Café Latte",
+  "slug": "cafe-latte",
+  "description": "Suave y cremoso, nuestro latte combina espresso con leche vaporizada y una delicada capa de espuma. Un abrazo en forma de café.",
+  "price": 14,
+  "category": "Lattes",
+  "image": "/images/products/latte.svg",
+  "available": true,
+  "featured": true,
+  "tags": [
+    "caliente",
+    "suave",
+    "leche"
+  ]
+}

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cold Brew - mason jar cartoon style -->
+  <ellipse cx="100" cy="185" rx="45" ry="7" fill="#2A1810" opacity="0.08"/>
+  
+  <!-- Mason jar body -->
+  <rect x="65" y="55" width="70" height="125" rx="6" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" opacity="0.9"/>
+  <!-- Jar neck -->
+  <rect x="72" y="45" width="56" height="15" rx="3" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5"/>
+  <!-- Lid -->
+  <rect x="68" y="40" width="64" height="10" rx="4" fill="#8B5A3A" stroke="#2A1810" stroke-width="2.5"/>
+  
+  <!-- Coffee liquid -->
+  <rect x="68" y="90" width="64" height="87" rx="4" fill="#3D1F0E" opacity="0.8"/>
+  <!-- Gradient effect -->
+  <rect x="68" y="85" width="64" height="15" rx="2" fill="#6B3A2A" opacity="0.5"/>
+  
+  <!-- Ice cubes -->
+  <rect x="78" y="95" width="18" height="16" rx="3" fill="white" opacity="0.35" stroke="white" stroke-width="1" transform="rotate(-5 87 103)"/>
+  <rect x="102" y="100" width="16" height="15" rx="3" fill="white" opacity="0.3" stroke="white" stroke-width="1" transform="rotate(8 110 107)"/>
+  <rect x="85" y="120" width="15" height="14" rx="3" fill="white" opacity="0.25" stroke="white" stroke-width="1" transform="rotate(-3 92 127)"/>
+  
+  <!-- Condensation drops -->
+  <ellipse cx="130" cy="100" rx="2" ry="3" fill="#88B4CC" opacity="0.3"/>
+  <ellipse cx="133" cy="120" rx="1.5" ry="2.5" fill="#88B4CC" opacity="0.25"/>
+  <ellipse cx="128" cy="140" rx="2" ry="3.5" fill="#88B4CC" opacity="0.2"/>
+  
+  <!-- Straw -->
+  <rect x="108" y="20" width="5" height="90" rx="2" fill="#C45D3E" stroke="#2A1810" stroke-width="1.5"/>
+  <rect x="108" y="20" width="5" height="12" rx="2" fill="#C45D3E" stroke="#2A1810" stroke-width="1.5" transform="rotate(15 110 26)"/>
+  
+  <!-- Cute face -->
+  <ellipse cx="88" cy="140" rx="5" ry="6" fill="#FDF6EC"/>
+  <ellipse cx="108" cy="140" rx="5" ry="6" fill="#FDF6EC"/>
+  <circle cx="88" cy="140" r="2.5" fill="#2A1810"/>
+  <circle cx="108" cy="140" r="2.5" fill="#2A1810"/>
+  <ellipse cx="89.5" cy="138" rx="1.5" ry="2" fill="white" opacity="0.8"/>
+  <ellipse cx="109.5" cy="138" rx="1.5" ry="2" fill="white" opacity="0.8"/>
+  <path d="M88 150 Q98 158 108 150" stroke="#FDF6EC" stroke-width="2" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cool sunglasses hint - winking -->
+  <path d="M80 137 L95 137" stroke="#FDF6EC" stroke-width="1.5" stroke-linecap="round" opacity="0"/>
+</svg>

@@ -1,0 +1,20 @@
+---
+export const prerender = false;
+
+import AdminLayout from '../../../layouts/AdminLayout.astro';
+import { getCollection } from 'astro:content';
+import PageList from '../../../components/admin/PageList';
+
+const pages = await getCollection('pages');
+
+const initialPages = pages.map(p => ({
+  id: p.id,
+  slug: p.data.slug || p.id,
+  collection: p.collection,
+  data: p.data
+}));
+---
+
+<AdminLayout title="Páginas">
+  <PageList client:load initialPages={initialPages} />
+</AdminLayout>

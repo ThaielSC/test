@@ -1,0 +1,207 @@
+---
+interface Props {
+  heading: string;
+  subheading: string;
+  ctaText: string;
+  ctaLink: string;
+}
+
+const { heading, subheading, ctaText, ctaLink } = Astro.props;
+---
+
+<section class="hero" id="hero-section">
+  <div class="container hero-inner">
+    <div class="hero-content animate-fade-in-up">
+      <span class="section-label star-deco">Café Artesanal</span>
+      <h1 class="hero-title">
+        {heading.split(',').map((part, i) => (
+          i === 0
+            ? <span>{part.trim()}</span>
+            : <span class="squiggly">{part.trim()}</span>
+        ))}
+      </h1>
+      <p class="hero-subtitle">{subheading}</p>
+      <div class="hero-actions">
+        <a href={ctaLink} class="btn btn-primary">{ctaText}</a>
+        <a href="/about" class="btn btn-secondary">Nuestra Historia</a>
+      </div>
+    </div>
+
+    <div class="hero-visual animate-fade-in" style="animation-delay: 200ms">
+      <div class="hero-cup">
+        <!-- Vintage cartoon coffee cup SVG -->
+        <svg viewBox="0 0 300 320" fill="none" xmlns="http://www.w3.org/2000/svg" class="cup-svg">
+          <!-- Saucer -->
+          <ellipse cx="135" cy="290" rx="120" ry="20" fill="#D4922A" opacity="0.15"/>
+          <ellipse cx="135" cy="285" rx="110" ry="16" fill="#F0E4D0" stroke="#2A1810" stroke-width="3"/>
+          <ellipse cx="135" cy="285" rx="85" ry="10" fill="#F5E6CC" stroke="#2A1810" stroke-width="2"/>
+          
+          <!-- Cup body -->
+          <path d="M55 150 L60 270 C60 280 210 280 210 270 L215 150" fill="#FDF6EC" stroke="#2A1810" stroke-width="3.5" stroke-linecap="round"/>
+          <!-- Cup rim -->
+          <ellipse cx="135" cy="150" rx="82" ry="18" fill="#FDF6EC" stroke="#2A1810" stroke-width="3.5"/>
+          <!-- Coffee surface -->
+          <ellipse cx="135" cy="152" rx="72" ry="14" fill="#6B3A2A"/>
+          <ellipse cx="125" cy="150" rx="25" ry="5" fill="#8B5A3A" opacity="0.5"/>
+          
+          <!-- Handle -->
+          <path d="M215 175 C255 175 265 210 255 230 C245 250 225 250 215 240" stroke="#2A1810" stroke-width="3.5" fill="none" stroke-linecap="round"/>
+          
+          <!-- Cartoon face on cup -->
+          <!-- Eyes -->
+          <ellipse cx="110" cy="210" rx="10" ry="13" fill="#2A1810"/>
+          <ellipse cx="160" cy="210" rx="10" ry="13" fill="#2A1810"/>
+          <!-- Eye shine -->
+          <ellipse cx="113" cy="205" rx="4" ry="5" fill="white" opacity="0.8"/>
+          <ellipse cx="163" cy="205" rx="4" ry="5" fill="white" opacity="0.8"/>
+          <!-- Smile -->
+          <path d="M100 235 Q135 260 170 235" stroke="#2A1810" stroke-width="3" fill="none" stroke-linecap="round"/>
+          <!-- Cheeks -->
+          <ellipse cx="90" cy="230" rx="12" ry="8" fill="#E8B04A" opacity="0.3"/>
+          <ellipse cx="180" cy="230" rx="12" ry="8" fill="#E8B04A" opacity="0.3"/>
+          
+          <!-- Steam lines (animated) -->
+          <g class="steam-group">
+            <path d="M100 125 Q108 100 100 80 Q92 60 100 40" stroke="#D4922A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.4">
+              <animate attributeName="opacity" values="0.4;0.1;0.4" dur="3s" repeatCount="indefinite"/>
+              <animate attributeName="d" values="M100 125 Q108 100 100 80 Q92 60 100 40;M100 125 Q92 100 100 75 Q108 55 100 35;M100 125 Q108 100 100 80 Q92 60 100 40" dur="3s" repeatCount="indefinite"/>
+            </path>
+            <path d="M135 120 Q143 95 135 75 Q127 55 135 35" stroke="#D4922A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.5">
+              <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2.5s" repeatCount="indefinite"/>
+              <animate attributeName="d" values="M135 120 Q143 95 135 75 Q127 55 135 35;M135 120 Q127 95 135 70 Q143 50 135 30;M135 120 Q143 95 135 75 Q127 55 135 35" dur="2.5s" repeatCount="indefinite"/>
+            </path>
+            <path d="M170 125 Q178 100 170 80 Q162 60 170 40" stroke="#D4922A" stroke-width="2.5" fill="none" stroke-linecap="round" opacity="0.35">
+              <animate attributeName="opacity" values="0.35;0.1;0.35" dur="3.5s" repeatCount="indefinite"/>
+              <animate attributeName="d" values="M170 125 Q178 100 170 80 Q162 60 170 40;M170 125 Q162 100 170 75 Q178 55 170 35;M170 125 Q178 100 170 80 Q162 60 170 40" dur="3.5s" repeatCount="indefinite"/>
+            </path>
+          </g>
+        </svg>
+      </div>
+
+      <!-- Floating decorative elements -->
+      <div class="deco-bean deco-1 animate-float">☕</div>
+      <div class="deco-bean deco-2 animate-float" style="animation-delay: 1s">✦</div>
+      <div class="deco-bean deco-3 animate-float" style="animation-delay: 2s">♨</div>
+    </div>
+  </div>
+
+  <!-- Wavy divider -->
+  <div class="hero-wave">
+    <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+      <path d="M0 40 Q360 80 720 40 Q1080 0 1440 40 L1440 80 L0 80 Z" fill="var(--bg-primary)"/>
+    </svg>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    background: linear-gradient(165deg, var(--color-parchment) 0%, var(--color-cream-dark) 50%, var(--color-cream) 100%);
+    padding-top: calc(var(--header-height) + var(--space-4xl));
+    padding-bottom: var(--space-4xl);
+    overflow: hidden;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+  }
+
+  .hero-inner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-3xl);
+    align-items: center;
+  }
+
+  .hero-title {
+    margin-bottom: var(--space-lg);
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.15rem;
+    line-height: 1.7;
+    margin-bottom: var(--space-2xl);
+    max-width: 50ch;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .hero-visual {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .hero-cup {
+    width: 100%;
+    max-width: 340px;
+    animation: float 5s var(--ease-out) infinite;
+  }
+
+  .cup-svg {
+    width: 100%;
+    height: auto;
+    filter: drop-shadow(0 20px 40px rgba(42, 24, 16, 0.15));
+  }
+
+  .deco-bean {
+    position: absolute;
+    font-size: 1.8rem;
+    opacity: 0.3;
+  }
+
+  .deco-1 { top: 10%; right: 5%; }
+  .deco-2 { bottom: 20%; right: 0; }
+  .deco-3 { top: 30%; left: 0; }
+
+  .hero-wave {
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    line-height: 0;
+  }
+
+  .hero-wave svg {
+    width: 100%;
+    height: 60px;
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      min-height: auto;
+      padding-bottom: var(--space-3xl);
+    }
+
+    .hero-inner {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .hero-subtitle {
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      justify-content: center;
+    }
+
+    .hero-visual {
+      order: -1;
+    }
+
+    .hero-cup {
+      max-width: 220px;
+    }
+
+    .deco-bean {
+      display: none;
+    }
+  }
+</style>

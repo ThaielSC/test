@@ -1,0 +1,36 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Espresso cup - vintage cartoon style -->
+  <!-- Saucer -->
+  <ellipse cx="100" cy="170" rx="70" ry="12" fill="#D4922A" opacity="0.15"/>
+  <ellipse cx="100" cy="167" rx="65" ry="10" fill="#F5E6CC" stroke="#2A1810" stroke-width="2.5"/>
+  
+  <!-- Small cup body -->
+  <path d="M65 120 L70 160 C70 168 130 168 130 160 L135 120" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="100" cy="120" rx="36" ry="10" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5"/>
+  <ellipse cx="100" cy="121" rx="30" ry="7" fill="#3D1F0E"/>
+  <!-- Crema -->
+  <ellipse cx="96" cy="120" rx="14" ry="4" fill="#8B5A3A" opacity="0.5"/>
+  
+  <!-- Handle -->
+  <path d="M135 128 C150 128 155 140 150 150 C145 158 135 156 130 150" stroke="#2A1810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cute face -->
+  <ellipse cx="88" cy="140" rx="5" ry="7" fill="#2A1810"/>
+  <ellipse cx="112" cy="140" rx="5" ry="7" fill="#2A1810"/>
+  <ellipse cx="90" cy="137" rx="2.5" ry="3" fill="white" opacity="0.8"/>
+  <ellipse cx="114" cy="137" rx="2.5" ry="3" fill="white" opacity="0.8"/>
+  <path d="M88 152 Q100 162 112 152" stroke="#2A1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="78" cy="148" rx="7" ry="5" fill="#E8B04A" opacity="0.25"/>
+  <ellipse cx="122" cy="148" rx="7" ry="5" fill="#E8B04A" opacity="0.25"/>
+  
+  <!-- Steam -->
+  <path d="M85 105 Q90 90 85 78" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.4">
+    <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2.5s" repeatCount="indefinite"/>
+  </path>
+  <path d="M100 102 Q105 87 100 72" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.5">
+    <animate attributeName="opacity" values="0.5;0.15;0.5" dur="2s" repeatCount="indefinite"/>
+  </path>
+  <path d="M115 105 Q120 90 115 78" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.35">
+    <animate attributeName="opacity" values="0.35;0.1;0.35" dur="3s" repeatCount="indefinite"/>
+  </path>
+</svg>

@@ -1,0 +1,24 @@
+{
+  "id": "about",
+  "title": "Nosotros",
+  "slug": "about",
+  "description": "Conoce la historia detrás de Greda Café — nuestro amor por el café artesanal.",
+  "sections": [
+    {
+      "type": "hero",
+      "content": {
+        "label": "Nuestra Historia",
+        "heading": "Más que café, es alma",
+        "subheading": "Desde 2020, tostando granos seleccionados a mano con la misma pasión del primer día."
+      }
+    },
+    {
+      "type": "text",
+      "content": {
+        "heading": "De un sueño a tu taza",
+        "paragraph1": "Greda nació de la idea simple de que el café puede ser más que una bebida — puede ser una experiencia. Seleccionamos granos de origen único, los tostamos en pequeños lotes y los preparamos con el cuidado que cada taza merece.",
+        "paragraph2": "Nuestro nombre, 'Greda', viene de la arcilla con la que se moldean las tazas artesanales. Como la greda, creemos que las mejores cosas se hacen a mano, con paciencia y con amor."
+      }
+    }
+  ]
+}

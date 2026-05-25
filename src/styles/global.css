@@ -1,0 +1,518 @@
+/* ============================================
+   GREDA CAFÉ — Retro Minimalist Design System
+   Estética: Cartoon vintage (Mickey Mouse 1930s)
+   mezclado con minimalismo moderno
+   ============================================ */
+
+/* --- Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* --- Design Tokens --- */
+:root {
+  /* Palette: warm vintage tones */
+  --color-cream: #FDF6EC;
+  --color-cream-dark: #F5E6CC;
+  --color-parchment: #F0E4D0;
+  --color-ink: #2A1810;
+  --color-ink-light: #4A3828;
+  --color-ink-muted: #7A6858;
+  --color-coffee: #6B3A2A;
+  --color-coffee-light: #8B5A3A;
+  --color-caramel: #D4922A;
+  --color-caramel-light: #E8B04A;
+  --color-rust: #C45D3E;
+  --color-sage: #7A9A6A;
+  --color-sage-light: #A8C89A;
+  --color-sky: #88B4CC;
+
+  /* Semantic */
+  --bg-primary: var(--color-cream);
+  --bg-secondary: var(--color-parchment);
+  --bg-card: #FFFFFF;
+  --text-primary: var(--color-ink);
+  --text-secondary: var(--color-ink-light);
+  --text-muted: var(--color-ink-muted);
+  --accent: var(--color-caramel);
+  --accent-hover: var(--color-caramel-light);
+  --border-color: var(--color-cream-dark);
+
+  /* Typography */
+  --font-body: 'Outfit', system-ui, sans-serif;
+  --font-display: 'Playfair Display', Georgia, serif;
+
+  /* Spacing */
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 4rem;
+  --space-4xl: 6rem;
+
+  /* Border radius — slightly rounded, vintage feel */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+  --radius-xl: 28px;
+  --radius-full: 9999px;
+
+  /* Shadows — soft, warm */
+  --shadow-sm: 0 1px 3px rgba(42, 24, 16, 0.06);
+  --shadow-md: 0 4px 12px rgba(42, 24, 16, 0.08);
+  --shadow-lg: 0 8px 30px rgba(42, 24, 16, 0.1);
+  --shadow-xl: 0 16px 50px rgba(42, 24, 16, 0.12);
+
+  /* Transitions */
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+
+  /* Layout */
+  --max-width: 1200px;
+  --header-height: 72px;
+}
+
+/* --- Reset & Base --- */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--text-primary);
+  background-color: var(--bg-primary);
+  overflow-x: hidden;
+}
+
+/* Vintage paper texture overlay */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 9999;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.02'/%3E%3C/svg%3E");
+  opacity: 0.4;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+/* --- Typography --- */
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: clamp(2.5rem, 6vw, 4.5rem);
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.8rem, 4vw, 3rem);
+  letter-spacing: -0.01em;
+}
+
+h3 {
+  font-size: clamp(1.2rem, 2.5vw, 1.6rem);
+}
+
+h4 {
+  font-size: 1.1rem;
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+p {
+  color: var(--text-secondary);
+  max-width: 65ch;
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+/* --- Container --- */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* --- Buttons --- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-sm);
+  padding: var(--space-md) var(--space-xl);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+  border-radius: var(--radius-full);
+  transition: all var(--duration-normal) var(--ease-out);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--duration-fast);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn:hover::after {
+  opacity: 1;
+}
+
+.btn-primary {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  border: 2px solid var(--color-ink);
+}
+
+.btn-primary:hover {
+  background: var(--color-coffee);
+  border-color: var(--color-coffee);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--color-ink);
+  border: 2px solid var(--color-ink);
+}
+
+.btn-secondary:hover {
+  background: var(--color-ink);
+  color: var(--color-cream);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-accent {
+  background: var(--color-caramel);
+  color: white;
+  border: 2px solid var(--color-caramel);
+}
+
+.btn-accent:hover {
+  background: var(--color-caramel-light);
+  border-color: var(--color-caramel-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-small {
+  padding: var(--space-sm) var(--space-lg);
+  font-size: 0.85rem;
+}
+
+/* --- Cards --- */
+.card {
+  background: var(--bg-card);
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border-color);
+  overflow: hidden;
+  transition: all var(--duration-normal) var(--ease-out);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--color-caramel);
+}
+
+/* --- Decorative elements (vintage cartoon style) --- */
+.doodle-line {
+  width: 60px;
+  height: 3px;
+  background: var(--color-caramel);
+  border-radius: var(--radius-full);
+  position: relative;
+}
+
+.doodle-line::after {
+  content: '';
+  position: absolute;
+  left: 70px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-caramel);
+}
+
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-sm);
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.8rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-caramel);
+  margin-bottom: var(--space-md);
+}
+
+/* --- Badge --- */
+.badge {
+  display: inline-block;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+  text-transform: uppercase;
+}
+
+.badge-featured {
+  background: var(--color-caramel);
+  color: white;
+}
+
+.badge-category {
+  background: var(--color-cream-dark);
+  color: var(--color-ink-light);
+}
+
+/* --- Price --- */
+.price {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.4rem;
+  color: var(--color-coffee);
+}
+
+.price-currency {
+  font-size: 0.8em;
+  vertical-align: super;
+  margin-right: 2px;
+}
+
+/* --- Section spacing --- */
+.section {
+  padding: var(--space-4xl) 0;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: var(--space-3xl);
+}
+
+.section-header p {
+  margin: var(--space-md) auto 0;
+}
+
+/* --- Grid --- */
+.grid {
+  display: grid;
+  gap: var(--space-xl);
+}
+
+.grid-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+/* --- Vintage Decorations --- */
+
+/* Squiggly underline */
+.squiggly {
+  position: relative;
+  display: inline-block;
+}
+
+.squiggly::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='6'%3E%3Cpath d='M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3' stroke='%23D4922A' fill='none' stroke-width='1.5'/%3E%3C/svg%3E") repeat-x;
+}
+
+/* Star decoration */
+.star-deco::before {
+  content: '✦';
+  margin-right: var(--space-sm);
+  color: var(--color-caramel);
+}
+
+/* Dotted divider */
+.divider-dots {
+  border: none;
+  height: 2px;
+  background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='2'%3E%3Ccircle cx='1' cy='1' r='1' fill='%23D4922A'/%3E%3C/svg%3E") repeat-x center;
+  margin: var(--space-2xl) 0;
+}
+
+/* --- Animations --- */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes wiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(-3deg); }
+  75% { transform: rotate(3deg); }
+}
+
+@keyframes steam {
+  0% {
+    opacity: 0;
+    transform: translateY(0) scale(1);
+  }
+  50% {
+    opacity: 0.6;
+  }
+  100% {
+    opacity: 0;
+    transform: translateY(-20px) scale(1.5);
+  }
+}
+
+.animate-float {
+  animation: float 4s var(--ease-out) infinite;
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) both;
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--duration-slow) var(--ease-out) both;
+}
+
+.animate-wiggle:hover {
+  animation: wiggle 0.4s ease;
+}
+
+/* Stagger children */
+.stagger > * {
+  animation: fadeInUp var(--duration-slow) var(--ease-out) both;
+}
+
+.stagger > *:nth-child(1) { animation-delay: 0ms; }
+.stagger > *:nth-child(2) { animation-delay: 80ms; }
+.stagger > *:nth-child(3) { animation-delay: 160ms; }
+.stagger > *:nth-child(4) { animation-delay: 240ms; }
+.stagger > *:nth-child(5) { animation-delay: 320ms; }
+.stagger > *:nth-child(6) { animation-delay: 400ms; }
+.stagger > *:nth-child(7) { animation-delay: 480ms; }
+
+/* --- Responsive --- */
+@media (max-width: 1024px) {
+  .grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .grid-3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .grid-4,
+  .grid-3,
+  .grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .container {
+    padding: 0 var(--space-md);
+  }
+
+  .section {
+    padding: var(--space-3xl) 0;
+  }
+}

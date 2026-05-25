@@ -1,0 +1,195 @@
+---
+---
+
+<footer class="footer" id="main-footer">
+  <div class="container">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="/" class="footer-logo">
+          <span class="logo-text">Greda<span class="logo-accent">Café</span></span>
+        </a>
+        <p class="footer-tagline">Café artesanal tostado con amor,<br/>servido con alma.</p>
+        <div class="footer-social">
+          <a href="#" class="social-link" aria-label="Instagram">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/>
+            </svg>
+          </a>
+          <a href="#" class="social-link" aria-label="Twitter">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Menú</h4>
+        <ul class="footer-links">
+          <li><a href="/menu">Todos los Cafés</a></li>
+          <li><a href="/menu#espresso">Espresso</a></li>
+          <li><a href="/menu#latte">Lattes</a></li>
+          <li><a href="/menu#frio">Fríos</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Nosotros</h4>
+        <ul class="footer-links">
+          <li><a href="/about">Nuestra Historia</a></li>
+          <li><a href="/about#proceso">El Proceso</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-links-group">
+        <h4 class="footer-heading">Visítanos</h4>
+        <ul class="footer-links footer-contact">
+          <li>Calle del Café 42</li>
+          <li>Ciudad Aroma, CA 90210</li>
+          <li>Lun–Sáb: 7am – 8pm</li>
+          <li>Dom: 8am – 6pm</li>
+        </ul>
+      </div>
+    </div>
+
+    <hr class="divider-dots" />
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; {new Date().getFullYear()} Greda Café. Hecho con ☕ y amor.</p>
+      <p class="footer-powered">
+        Powered by <span class="squiggly">Greda</span>
+      </p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-ink);
+    color: var(--color-cream);
+    padding: var(--space-4xl) 0 var(--space-xl);
+    margin-top: var(--space-4xl);
+  }
+
+  .footer-top {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr;
+    gap: var(--space-3xl);
+  }
+
+  .footer-logo .logo-text {
+    font-family: var(--font-display);
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-cream);
+  }
+
+  .footer-logo .logo-accent {
+    color: var(--color-caramel);
+    font-style: italic;
+  }
+
+  .footer-tagline {
+    color: var(--color-ink-muted);
+    color: rgba(253, 246, 236, 0.5);
+    font-size: 0.9rem;
+    margin-top: var(--space-md);
+    line-height: 1.6;
+  }
+
+  .footer-social {
+    display: flex;
+    gap: var(--space-md);
+    margin-top: var(--space-lg);
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(253, 246, 236, 0.15);
+    color: rgba(253, 246, 236, 0.6);
+    transition: all var(--duration-fast);
+  }
+
+  .social-link:hover {
+    background: var(--color-caramel);
+    border-color: var(--color-caramel);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  .footer-heading {
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.85rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-caramel);
+    margin-bottom: var(--space-lg);
+  }
+
+  .footer-links {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+  }
+
+  .footer-links a,
+  .footer-contact li {
+    font-size: 0.9rem;
+    color: rgba(253, 246, 236, 0.6);
+    transition: color var(--duration-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-cream);
+  }
+
+  .footer .divider-dots {
+    opacity: 0.2;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .footer-copy,
+  .footer-powered {
+    font-size: 0.8rem;
+    color: rgba(253, 246, 236, 0.35);
+  }
+
+  .footer-powered .squiggly::after {
+    bottom: -3px;
+    height: 4px;
+  }
+
+  @media (max-width: 768px) {
+    .footer-top {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2xl);
+    }
+
+    .footer-brand {
+      grid-column: 1 / -1;
+    }
+
+    .footer-bottom {
+      flex-direction: column;
+      gap: var(--space-sm);
+      text-align: center;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .footer-top {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
