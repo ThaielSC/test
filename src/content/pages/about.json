@@ -1,6 +1,6 @@
 {
   "id": "about",
-  "title": "Nosotras",
+  "title": "Nosotros",
   "slug": "about",
   "description": "Conoce la historia detrás de Greda Café — nuestro amor por el café artesanal.",
   "sections": [
@@ -9,7 +9,7 @@
       "content": {
         "label": "Nuestra Historia",
         "heading": "Más que café, es alma",
-        "subheading": "Desde 2020, tostando granos seleccionados a mano con la misma pasión del primer día. pene pne pne pne"
+        "subheading": "Desde 2020, tostando granos seleccionados a mano con la misma pasión del primer día. "
       }
     },
     {
