@@ -1,9 +1,9 @@
 {
   "id": "cappuccino",
-  "name": "Cappuccino",
+  "name": "Davidccino",
   "slug": "cappuccino",
   "description": "El equilibrio perfecto entre espresso, leche vaporizada y espuma densa. Decorado con un toque de cacao.",
-  "price": 109,
+  "price": 4,
   "category": "latte",
   "image": "/images/products/cappuccino.svg",
   "available": true,
