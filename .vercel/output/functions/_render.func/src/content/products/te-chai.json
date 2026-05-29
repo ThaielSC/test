@@ -1,0 +1,12 @@
+{
+  "id": "te-chai",
+  "name": "Té Chai Latte",
+  "slug": "te-chai",
+  "description": "Especias aromáticas — canela, cardamomo, jengibre — infusionadas con té negro y leche cremosa. Un viaje de sabores.",
+  "price": 4.00,
+  "category": "te",
+  "image": "/images/products/chai.svg",
+  "available": true,
+  "featured": false,
+  "tags": ["caliente", "especiado", "té"]
+}

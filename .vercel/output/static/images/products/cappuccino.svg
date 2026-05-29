@@ -1,0 +1,48 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Cappuccino cup - wide bowl cartoon style -->
+  <ellipse cx="100" cy="175" rx="70" ry="12" fill="#D4922A" opacity="0.12"/>
+  <ellipse cx="100" cy="172" rx="65" ry="10" fill="#F5E6CC" stroke="#2A1810" stroke-width="2.5"/>
+  
+  <!-- Wide cup body -->
+  <path d="M50 105 L60 162 C60 170 140 170 140 162 L150 105" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" stroke-linecap="round"/>
+  <ellipse cx="100" cy="105" rx="51" ry="14" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5"/>
+  
+  <!-- Foam layer -->
+  <ellipse cx="100" cy="107" rx="44" ry="10" fill="white"/>
+  <!-- Foam bubbles -->
+  <circle cx="85" cy="105" r="5" fill="white" stroke="#F0E4D0" stroke-width="1"/>
+  <circle cx="100" cy="103" r="6" fill="white" stroke="#F0E4D0" stroke-width="1"/>
+  <circle cx="115" cy="106" r="4" fill="white" stroke="#F0E4D0" stroke-width="1"/>
+  <circle cx="92" cy="110" r="4" fill="white" stroke="#F0E4D0" stroke-width="1"/>
+  <circle cx="108" cy="109" r="5" fill="white" stroke="#F0E4D0" stroke-width="1"/>
+  
+  <!-- Cacao powder sprinkle -->
+  <circle cx="88" cy="104" r="1" fill="#8B5A3A" opacity="0.4"/>
+  <circle cx="95" cy="107" r="0.8" fill="#8B5A3A" opacity="0.3"/>
+  <circle cx="105" cy="103" r="1.2" fill="#8B5A3A" opacity="0.35"/>
+  <circle cx="112" cy="108" r="0.7" fill="#8B5A3A" opacity="0.3"/>
+  <circle cx="100" cy="100" r="1" fill="#8B5A3A" opacity="0.4"/>
+  
+  <!-- Handle -->
+  <path d="M150 115 C170 115 175 135 165 148 C158 158 145 155 140 148" stroke="#2A1810" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+  
+  <!-- Cute face -->
+  <ellipse cx="85" cy="138" rx="6" ry="8" fill="#2A1810"/>
+  <ellipse cx="115" cy="138" rx="6" ry="8" fill="#2A1810"/>
+  <ellipse cx="87" cy="134" rx="3" ry="3.5" fill="white" opacity="0.8"/>
+  <ellipse cx="117" cy="134" rx="3" ry="3.5" fill="white" opacity="0.8"/>
+  <path d="M85 153 Q100 165 115 153" stroke="#2A1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="73" cy="148" rx="8" ry="5" fill="#E8B04A" opacity="0.25"/>
+  <ellipse cx="127" cy="148" rx="8" ry="5" fill="#E8B04A" opacity="0.25"/>
+  
+  <!-- Steam -->
+  <path d="M85 88 Q92 70 85 55" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.35">
+    <animate attributeName="opacity" values="0.35;0.1;0.35" dur="2.8s" repeatCount="indefinite"/>
+  </path>
+  <path d="M100 85 Q107 68 100 50" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.45">
+    <animate attributeName="opacity" values="0.45;0.12;0.45" dur="2.3s" repeatCount="indefinite"/>
+  </path>
+  <path d="M115 88 Q122 70 115 55" stroke="#D4922A" stroke-width="2" fill="none" stroke-linecap="round" opacity="0.3">
+    <animate attributeName="opacity" values="0.3;0.08;0.3" dur="3.2s" repeatCount="indefinite"/>
+  </path>
+</svg>

@@ -1,0 +1,42 @@
+<svg viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Frappé - blended drink cartoon style -->
+  <ellipse cx="100" cy="188" rx="40" ry="6" fill="#D4922A" opacity="0.1"/>
+  
+  <!-- Cup body (plastic cup shape) -->
+  <path d="M70 55 L78 180 C78 185 122 185 122 180 L130 55" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" stroke-linecap="round" opacity="0.85"/>
+  
+  <!-- Dome lid -->
+  <path d="M68 55 Q68 35 100 32 Q132 35 132 55" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" opacity="0.6"/>
+  <ellipse cx="100" cy="55" rx="32" ry="8" fill="#FDF6EC" stroke="#2A1810" stroke-width="2.5" opacity="0.6"/>
+  
+  <!-- Blended content - caramel swirl -->
+  <rect x="75" y="70" width="50" height="105" rx="3" fill="#D4922A" opacity="0.7"/>
+  <!-- Lighter swirl -->
+  <path d="M78 80 Q100 95 122 80" stroke="#E8B04A" stroke-width="8" fill="none" opacity="0.5"/>
+  <path d="M78 110 Q100 125 122 110" stroke="#E8B04A" stroke-width="6" fill="none" opacity="0.4"/>
+  <path d="M80 140 Q100 155 120 140" stroke="#E8B04A" stroke-width="5" fill="none" opacity="0.3"/>
+  
+  <!-- Whipped cream inside dome -->
+  <ellipse cx="100" cy="50" rx="25" ry="12" fill="white"/>
+  <ellipse cx="93" cy="45" rx="10" ry="8" fill="white" stroke="#F0E4D0" stroke-width="0.5"/>
+  <ellipse cx="108" cy="44" rx="9" ry="9" fill="white" stroke="#F0E4D0" stroke-width="0.5"/>
+  <ellipse cx="100" cy="40" rx="8" ry="7" fill="white" stroke="#F0E4D0" stroke-width="0.5"/>
+  
+  <!-- Caramel drizzle on cream -->
+  <path d="M92 42 Q94 48 90 52" stroke="#C45D3E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.6"/>
+  <path d="M108 40 Q110 46 106 50" stroke="#C45D3E" stroke-width="1.5" fill="none" stroke-linecap="round" opacity="0.5"/>
+  
+  <!-- Straw -->
+  <rect x="96" y="15" width="5" height="80" rx="2" fill="#C45D3E" stroke="#2A1810" stroke-width="1.5"/>
+  
+  <!-- Cute face -->
+  <ellipse cx="90" cy="125" rx="5" ry="6" fill="#2A1810"/>
+  <ellipse cx="110" cy="125" rx="5" ry="6" fill="#2A1810"/>
+  <ellipse cx="91.5" cy="122" rx="2" ry="2.5" fill="white" opacity="0.8"/>
+  <ellipse cx="111.5" cy="122" rx="2" ry="2.5" fill="white" opacity="0.8"/>
+  <!-- Tongue out - playful -->
+  <path d="M90 138 Q100 148 110 138" stroke="#2A1810" stroke-width="2" fill="none" stroke-linecap="round"/>
+  <ellipse cx="100" cy="143" rx="5" ry="4" fill="#C45D3E" opacity="0.5"/>
+  <ellipse cx="82" cy="132" rx="6" ry="4" fill="#E8B04A" opacity="0.2"/>
+  <ellipse cx="118" cy="132" rx="6" ry="4" fill="#E8B04A" opacity="0.2"/>
+</svg>

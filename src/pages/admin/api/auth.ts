@@ -3,7 +3,16 @@ export const prerender = false;
 import { SignJWT } from 'jose';
 import type { APIRoute } from 'astro';
 
-const JWT_SECRET = new TextEncoder().encode(import.meta.env.JWT_SECRET || 'greda-secret-key-for-dev-only');
+const getSecret = () => {
+  try {
+    const secret = (typeof process !== 'undefined' && process.env.JWT_SECRET) 
+      ? process.env.JWT_SECRET 
+      : import.meta.env.JWT_SECRET;
+    return new TextEncoder().encode(secret || 'greda-secret-key-for-dev-only');
+  } catch (e) {
+    return new TextEncoder().encode('greda-secret-key-for-dev-only');
+  }
+};
 
 // Credenciales fijas para la prueba
 const MOCK_USER = {
@@ -14,6 +23,7 @@ const MOCK_USER = {
 
 export const POST: APIRoute = async ({ request, cookies }) => {
   try {
+    const JWT_SECRET = getSecret();
     const data = await request.json();
     const { email, password } = data;
 

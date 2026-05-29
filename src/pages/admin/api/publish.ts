@@ -120,7 +120,6 @@ export const POST: APIRoute = async ({ request, locals }) => {
           throw new Error(`No se pudo procesar el archivo ${fileName}`);
         }
       }
-      }
     }
 
     // Respuesta exitosa al procesar todos los borradores

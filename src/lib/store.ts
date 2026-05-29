@@ -1,4 +1,4 @@
-import { get, set, keys, del } from 'idb-keyval';
+// No importamos idb-keyval al nivel superior para evitar crashes en SSR de Vercel
 
 export interface Draft {
   collection: string;
@@ -11,6 +11,8 @@ export interface Draft {
  * Guarda un borrador localmente en el navegador.
  */
 export async function saveDraft(collection: string, slug: string, data: any): Promise<void> {
+  if (typeof window === 'undefined') return;
+  const { set } = await import('idb-keyval');
   const key = `draft_${collection}_${slug}`;
   const draft: Draft = {
     collection,
@@ -25,6 +27,8 @@ export async function saveDraft(collection: string, slug: string, data: any): Pr
  * Recupera un borrador si existe.
  */
 export async function getDraft(collection: string, slug: string): Promise<Draft | undefined> {
+  if (typeof window === 'undefined') return undefined;
+  const { get } = await import('idb-keyval');
   const key = `draft_${collection}_${slug}`;
   return await get(key);
 }
@@ -33,6 +37,8 @@ export async function getDraft(collection: string, slug: string): Promise<Draft 
  * Obtiene todos los borradores locales (útil para mostrar indicadores en la UI).
  */
 export async function getAllDrafts(): Promise<Draft[]> {
+  if (typeof window === 'undefined') return [];
+  const { keys, get } = await import('idb-keyval');
   const allKeys = await keys();
   const draftKeys = allKeys.filter(k => typeof k === 'string' && k.startsWith('draft_'));
   
@@ -47,6 +53,8 @@ export async function getAllDrafts(): Promise<Draft[]> {
  * Elimina un borrador (por ejemplo, después de publicar).
  */
 export async function deleteDraft(collection: string, slug: string): Promise<void> {
+  if (typeof window === 'undefined') return;
+  const { del } = await import('idb-keyval');
   const key = `draft_${collection}_${slug}`;
   await del(key);
 }

@@ -1,9 +1,19 @@
 import { defineMiddleware } from 'astro:middleware';
 import { jwtVerify } from 'jose';
 
-const JWT_SECRET = new TextEncoder().encode(import.meta.env.JWT_SECRET || 'greda-secret-key-for-dev-only');
-
 export const onRequest = defineMiddleware(async (context, next) => {
+  const getSecret = () => {
+    try {
+      const secret = (typeof process !== 'undefined' && process.env.JWT_SECRET) 
+        ? process.env.JWT_SECRET 
+        : import.meta.env.JWT_SECRET;
+      return new TextEncoder().encode(secret || 'greda-secret-key-for-dev-only');
+    } catch (e) {
+      return new TextEncoder().encode('greda-secret-key-for-dev-only');
+    }
+  };
+  const JWT_SECRET = getSecret();
+
   const { url, cookies, redirect } = context;
 
   // Solo proteger rutas que empiezan con /admin (excepto /admin/login y la API de auth)
